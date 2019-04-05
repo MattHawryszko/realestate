@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 * {
   margin: 0;
   padding: 0;
   }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, 'Quicksand', "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,4 +18,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   
     monospace;
+}
+.property-img{
+
+}
+
+@media only screen and (min-width: 61.963em) { 
+  .right-img{
+    
+    padding-bottom: 0px;
+  }
+  .left-img{
+    padding-top: 0px;
+  }
+
+}
+@media only screen and (max-width: 61.9em) { 
+  .left-img{
+    padding-top: 100px;
+  }
+  .right-img{
+    padding-bottom: 0px;
+  }
+
+}
+
+.btn--more {
+  border-radius: 25px;
+  color: rgb(255, 255, 255);
+  padding-left: 60px; 
+  padding-right: 60px; 
+  padding-top: 6px;
+  padding-bottom: 6px;
+  letter-spacing: 2px;
+  background-color: rgb(71, 102, 152);
+  font-size: 1.25rem;
+}
+.btn--more:hover {
+  border-radius: 25px;
+  background-color: rgb(45, 55, 82);
+  color: #fff;
+  text-decoration: none;
+
+}
+.right-img{
+  
+  margin-top: 100px;
+
+}
+.text-box {
+  height: 140px;
+  position: relative;
+  border-radius: 5px;
+  background: white;
+  width: 250px;
+  margin-top: -50px;
+  margin-left: 30px;
+
+}
+.price-text{
+  color: rgb(45, 55, 82);
+  font-weight: 900;
+  font-size: 1.4rem;
+  
+}
+.sqft-text{
+  font-size: .8rem;
+  color: rgb(71, 102, 152)
+}
+.location-text{
+  font-size: 1rem;
+  color: rgb(71, 102, 152)
+}
+.address-text{
+  font-size: .7rem;
+  color: rgb(115, 115, 115);
+}
+.icon{
+  color: rgb(115, 115, 115);
+}
+.properties-bg{
+  background-color: rgb(240,240,240);
+}
+.font-bold{
+  font-weight: 900;
+  
+}
+.font-light{
+  font-weight: 200;
+  
 }

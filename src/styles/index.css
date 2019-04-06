@@ -19,8 +19,63 @@ code {
   
     monospace;
 }
+.title-underline{
+	width: 12rem;
+height: 0.3rem;
+margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+position: relative;
+border-radius: 2rem;
+
+
+}
+.title-underline__center {
+  position: absolute;
+  height: 0.6rem;
+  background: rgb(71, 102, 152);
+  width: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+}
+.fa-user{
+  border-radius: 25px;
+  width: 60px;
+  height: 60px; 
+  background: rgb(246, 246, 246);
+}
 .text-brown{
   color: rgb(158 145 124);
+}
+.text-light-grey{
+  color: rgb(141, 141, 141);
+}
+.text-big{
+  font-size: 3.3rem !important;
+}
+.review-bg1{
+  background: rgb(249, 249, 249) center ; 
+  
+  background-size: cover;
+  min-width: 98vw;
+  max-width: 98vw;
+  min-height: 53vh;
+  max-height: 180vh;
+  object-fit: fill;
+  overflow: hidden;
+}
+.review-bg{
+  background: url(../img/reviewbg.png) center ; 
+  background-repeat: no-repeat;
+  background-size: s;
+  min-width: 45vw;
+  max-width: 98vw;
+  min-height: 53vh;
+  max-height: 180vh;
+  object-fit: scale-down;
+  overflow: hidden;
 }
 .btn--contact-me {
   border-radius: 25px;

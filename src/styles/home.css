@@ -20,8 +20,8 @@
 
 }
 
+  
 .btn--contact {
-    
   border-radius: 25px;
   color: #fff;
   padding-left: 60px; 
@@ -30,14 +30,8 @@
   padding-bottom: 6px;
   letter-spacing: 2px;
   background-color: rgba(71, 102, 152, 0.5);
-font-size: 1.25rem;
-  }
-  .btn-text{
-    position: relative;
-      filter: none !important;
-      background: transparent !important;
-      z-index: 1001 !important;
-  }
+  font-size: 1.25rem;
+}
 .btn--contact:hover {
     border-radius: 25px;
     background-color: rgba(45, 55, 82, 0.7);

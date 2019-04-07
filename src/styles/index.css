@@ -30,6 +30,9 @@ border-radius: 2rem;
 
 
 }
+#footer{
+  background: #242325;
+}
 .title-underline__center {
   position: absolute;
   height: 0.6rem;
@@ -52,8 +55,15 @@ border-radius: 2rem;
 .text-light-grey{
   color: rgb(141, 141, 141);
 }
+.text-light-grey:hover{
+  color: rgb(141, 141, 141);
+  text-decoration: none;
+}
 .text-big{
   font-size: 3.3rem !important;
+}
+.text-md{
+  font-size: 1.5rem !important;
 }
 .review-bg1{
   background: rgb(249, 249, 249) center ; 

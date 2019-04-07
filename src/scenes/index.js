@@ -19,7 +19,6 @@ export default class App extends Component {
       	<Navbar />
         <Home />
         <Properties />
-        <Subscribe />
         <Agents />
         <Reviews />
         <Footer />

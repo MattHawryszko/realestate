@@ -1,13 +1,15 @@
 
 .home-bg{
-    background: linear-gradient( transparent 0%, rgba(0, 0, 0, 0.699) 100%), url(../img/bg.jpg) no-repeat center ; 
+    background: linear-gradient(rgba(0, 0, 0, 0.599) 100%, rgba(0, 0, 0, 0.599) 100%), url(../img/bg.jpg) no-repeat center ; 
 
     background-size: cover;
     min-width: 98vw;
     min-height: 80vh;
     max-height: 180vh;
+
     object-fit: fill;
     overflow: hidden;
+
 }
 
 .vertical-center {

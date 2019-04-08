@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
 import "../styles/home.css";
+import Navbar from "../components/navbar"
 
 export default class App extends Component {
 render() {
     return (
-      <section id="home">
-      <div className="container-fluid home-bg vh-100 vertical-center">
+      <section id="home" className="home-bg ">
+      <Navbar />
+      <div className="container-fluid vh-100 vertical-center">
+      
           <div className="col-12 my-auto">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center animated bounceIn fast">
                 <h1 className="pt-5 text-center text-white font-bold">Find your dream home With LuxReality</h1>   
             </div>
-            <div className="row justify-content-center">
+            <div className="row justify-content-center animated slideInLeft fast">
               <h5 className="text-center text-white font-light">Love the home you buy, or we'll buy it back</h5>
               
             </div>

@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import Index from "./index"
 
+global.jQuery = require('jquery');
+
 export default class App extends Component {
   componentDidMount(){
     

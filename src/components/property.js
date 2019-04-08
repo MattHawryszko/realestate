@@ -35,7 +35,7 @@ componentWillMount(){
 render() {
   const style = this.state.imageStatus ? {} : {visibility: 'hidden'}
     return (
-      <div className="col-12 px-5 pb-5 col-lg-6 left-img">
+      <div className="col-12 px-5 pb-5 col-lg-6 left-img animated zoomIn delay-1s faster">
           <img src={this.props.image} style={style} class="img-fluid rounded property-img" onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageErrored.bind(this)} alt="Responsive image" />
           {this.state.imageStatus == true &&
           <div class='text-box'>

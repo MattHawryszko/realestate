@@ -147,6 +147,7 @@ loadMore() {
 }
 render() {
     return (
+      <section id="properties">
         <div className="properties-bg pt-5">
           <div className="container pt-5">
             <div className="row">
@@ -163,7 +164,8 @@ render() {
             }
 
           </div>
-        </div>     
+        </div>    
+        </section> 
       );
   }
 };

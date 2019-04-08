@@ -6,6 +6,7 @@ import Agent2 from "../img/agent2.png";
 export default class App extends Component {
 render() {
     return (
+      <section id="contact">
       <div className="container">
       <div class="col-lg-12">
         <div class="pt-5">
@@ -60,6 +61,7 @@ render() {
 
         
       </div>     
+      </section>
       );
   }
 };

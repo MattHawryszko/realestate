@@ -6,7 +6,7 @@ render() {
       <div>
       <div className="review-bg1"><div className="review-bg"><div className="container-fluid">
       <div class="col-lg-12">
-        <div class="pt-2">
+        <div class="pt-5">
           <p class="h1 text-uppercase justify-content-center d-flex">Reviews</p>
             
           <div class="title-underline my-3 bg-secondary">
@@ -17,7 +17,7 @@ render() {
           </div>
         </div>
       </div>
-        <div className="row pt-5">
+        <div className="row pt-2">
           <div className="col-lg-4 pb-1">
             <div className="card">
               <div className="row">
@@ -46,7 +46,7 @@ render() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 pb-3">
+            <div className="col-lg-4 pb-5">
             <div className="card">
               <div className="row">
                 <div className="col-3 mt-5">

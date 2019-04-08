@@ -33,6 +33,7 @@
   letter-spacing: 2px;
   background-color: rgba(71, 102, 152, 0.5);
   font-size: 1.25rem;
+  cursor: pointer;
 }
 .btn--contact:hover {
     border-radius: 25px;

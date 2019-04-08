@@ -19,7 +19,7 @@ export default class App extends Component {
       <div className="w-100">
       	
         <Home />
-        <Properties />
+        <Properties history={this.props.history} />
         <Agents />
         
         <Reviews />

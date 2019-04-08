@@ -31,6 +31,7 @@ constructor(props) {
 componentDidMount() {
   this.setState({
     items: [{
+      id: "10001",
       price:"2, 599, 999",
       beds:"5",
       baths:"4",
@@ -40,6 +41,7 @@ componentDidMount() {
       image: Image
      },
      {
+      id: "10002",
       price:"399, 999",
       beds:"5",
       baths:"4",
@@ -49,6 +51,7 @@ componentDidMount() {
       image: Image2
      },
      {
+      id: "10003",
       price:"599, 999",
       beds:"5",
       baths:"4",
@@ -58,6 +61,7 @@ componentDidMount() {
       image: Image3
      },
      {
+      id: "10004",
       price:"3, 699, 999",
       beds:"5",
       baths:"4",
@@ -67,6 +71,7 @@ componentDidMount() {
       image: Image4
      },
      {
+      id: "10005",
       price:"1, 399, 999",
       beds:"5",
       baths:"4",
@@ -76,6 +81,7 @@ componentDidMount() {
       image: Image5
      },
      {
+      id: "10006",
       price:"2, 399, 999",
       beds:"5",
       baths:"4",
@@ -85,6 +91,7 @@ componentDidMount() {
       image: Image6
      },
      {
+      id: "10007",
       price:"6, 599, 999",
       beds:"5",
       baths:"4",
@@ -94,6 +101,7 @@ componentDidMount() {
       image: Image2
      },
      {
+      id: "10008",
       price:"2, 239, 999",
       beds:"5",
       baths:"4",
@@ -103,6 +111,7 @@ componentDidMount() {
       image: Image8
      },
      {
+      id: "10009",
       price:"1, 559, 999",
       beds:"5",
       baths:"4",
@@ -112,6 +121,7 @@ componentDidMount() {
       image: Image9
      },
      {
+      id: "10010",
       price:"1, 729, 999",
       beds:"5",
       baths:"4",
@@ -121,6 +131,7 @@ componentDidMount() {
       image: Image10
      },
      {
+      id: "10011",
       price:"1, 119, 999",
       beds:"5",
       baths:"4",
@@ -130,6 +141,7 @@ componentDidMount() {
       image: Image11
      },
      {
+      id: "10012",
       price:"1, 119, 999",
       beds:"5",
       baths:"4",
@@ -153,7 +165,7 @@ render() {
             <div className="row">
             {this.state.items.slice(0, this.state.visible).map((item, index) => {
               return (
-                <Property price={item.price} beds={item.beds} baths={item.baths} sqft={item.sqft} address={item.address} city={item.city} image={item.image}/>
+                <Property history={this.props.history} id={item.id} price={item.price} beds={item.beds} baths={item.baths} sqft={item.sqft} address={item.address} city={item.city} image={item.image}/>
               );
             })}
             </div>
@@ -165,7 +177,7 @@ render() {
 
           </div>
         </div>    
-        </section> 
+      </section> 
       );
   }
 };

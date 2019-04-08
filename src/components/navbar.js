@@ -4,11 +4,12 @@ import React, { Component } from 'react';
 import $ from "jquery";
 import "bootstrap/js/dist/modal";
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 var previousId
 window.onmousedown = function(event){
   $("li").click(
-    function(event) {
+    async function(event) {
       event.preventDefault();
       var id = event.target.parentNode.className
       id = id.replace('active', '').trim()
@@ -21,16 +22,59 @@ window.onmousedown = function(event){
       }, 1000);
       previousId = id;
       }
-      
+      await delay(3000);
+      previousId = null;
        
     }
   );
   
 }
 
-
 export default class App extends Component {
+constructor(props) {
+  super(props);
+
+
+
+}
+handleEvent = event => {
+  const props = this.props;
+  props.history.push('/')
+};
 render() {
+  var is_root = window.location.pathname == "/";
+  if(!is_root)
+  {
+  return (
+    <div>
+    <nav class="navbar navbar-expand-sm navbar-light bg-dark" id="navbar">
+    <div class="container">
+
+
+        <a class="navbar-brand text-white font-bold text-md" onClick={this.handleEvent}>LuxReality</a>
+
+    </div>
+</nav>
+<div class="modal fade p-0 m-0 w-100" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-bg" role="document">
+  <div class="modal-content modal-bg p-0 m-0 ">
+  <button type="button" class="close justify-content-end d-flex text-light-gray " data-dismiss="modal" aria-label="Close"><span className="h1" aria-hidden="true">&times;</span></button>
+    <div class="modal-body modal-bg p-0 m-0 justify-content-center d-flex">
+      <ul className="">
+        <li className="home active"><a data-dismiss="modal" className="text-center">HOME</a></li>
+        <li className="about"><a data-dismiss="modal" className="text-center">ABOUT ME</a></li>
+        <li className="skills"><a data-dismiss="modal" className="text-center">SKILLS</a></li>
+        <li className="projects"><a data-dismiss="modal" className="text-center">PROJECTS</a></li>
+        
+      </ul>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+    );
+  }
     return (
       <div>
       <nav class="navbar navbar-expand-sm navbar-light" id="navbar">

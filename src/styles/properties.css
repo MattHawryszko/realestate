@@ -29,6 +29,9 @@
     margin-left: 30px;
   
   }
+  textarea {
+    resize: none;
+  }
   .price-text{
     color: rgb(45, 55, 82);
     font-weight: 900;
@@ -52,3 +55,43 @@
   .properties-bg{
     background-color: rgb(240,240,240);
   }
+  .house-img-container {
+    position: relative;
+    display: inline-block; /* added */
+    overflow: hidden; /* added */
+}
+
+.house-img-container img {width:100%;} /* remove if using in grid system */
+
+.house-img-container:hover img {
+
+  opacity: 0.6; /* added */
+}
+.house-img-container:hover a {
+    opacity: 1; /* added */
+    top: 0; /* added */
+    z-index: 500;
+    
+}
+/* added */
+.house-img-container:hover a i {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+/* added */
+.house-img-container a {
+    display: block;
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: inherit;
+
+}

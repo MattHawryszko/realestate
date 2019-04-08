@@ -18,8 +18,8 @@ render() {
               <h5 className="text-center text-white font-light">Love the home you buy, or we'll buy it back</h5>
               
             </div>
-            <div className="row justify-content-center">
-            <a className="mt-5 btn--default btn--contact text-uppercase" href="">contact us</a>
+            <div className="row justify-content-center pt-5">
+            <li className="contact active"><a className="mt-5 btn--default btn--contact text-uppercase text-white">contact us</a></li>
             </div>
           </div>
       </div>    

@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="w-100">
-      	<Index />
+      	<Index history={this.props.history} />
       </div>
     );
   }

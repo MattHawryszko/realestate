@@ -102,7 +102,9 @@ border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   }
-
+.navbar-brand{
+  cursor: pointer;
+}
 .btn--contact-me:hover {
     border-radius: 25px;
     background-color: rgb(71, 102, 152);

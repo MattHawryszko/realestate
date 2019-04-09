@@ -3,7 +3,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.599) 100%, rgba(0, 0, 0, 0.599) 100%), url(../img/bg.jpg) no-repeat center ; 
 
     background-size: cover;
-    min-width: 98vw;
+    min-width: 96vw;
     min-height: 80vh;
     max-height: 180vh;
 

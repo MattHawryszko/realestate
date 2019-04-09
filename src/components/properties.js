@@ -22,11 +22,13 @@ constructor(props) {
 
   this.state = {
     items: [],
+    sorted: [],
     visible: 4,
     error: false
   };
 
   this.loadMore = this.loadMore.bind(this);
+  this.sort = this.sort.bind(this);
 }
 componentDidMount() {
   this.setState({
@@ -157,10 +159,225 @@ loadMore() {
     return {visible: prev.visible + 4};
   });
 }
+async sort() {
+  var items = this.state.items;
+  await this.setState( {sorted: []})
+  var newArray = this.state.sorted.slice();   
+  var minPrice = document.getElementById('minPrice').value;
+  var maxPrice = document.getElementById('maxPrice').value;
+  var minSqft = document.getElementById('minSqft').value;
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  if(minSqft === "Min sqft..."){
+    minSqft = 1;
+  }
+  console.log(minSqft)
+  var location = document.getElementById('location').value;
+  var error = document.getElementById("error");
+  await items.forEach(element => {
+    var price = parseInt(element.price.replace(/[^\d\.\-]/g, ''))
+
+    if(maxPrice > minPrice && price < maxPrice &&! newArray.includes(element) && price > minPrice &&! newArray.includes(element) && element.sqft > minSqft &&! newArray.includes(element)){
+        console.log(element)
+        newArray.push(element)
+        this.setState( {sorted: newArray})
+        error.style.display = 'none'
+        
+    }
+
+
+
+    
+  });
+
+  if(newArray.length == 0){
+    error.classList.remove("bounceOut")
+    error.classList.add("bounceIn")
+    error.style.display = 'block'
+    await delay(3000);
+    error.classList.add("bounceOut")
+    //error.style.display = 'none'
+  }
+  this.render();
+  console.log(this.state.sorted)
+  console.log(this.state.items)
+
+}
 render() {
+if(this.state.sorted.length >= 1)
+{
     return (
-      <section id="properties">
+      <section id="properties" className="properties-bg">
+                <div className="container">
+        <div class="col-lg-12">
+          <div class="pt-5">
+            <p class="h1 text-uppercase justify-content-center d-flex">Properties</p>
+              
+            <div class="title-underline my-3 bg-secondary">
+              <div class="title-underline__center"></div>
+            </div>
+            <div class="mx-2">
+              <p class="text-center">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+        </div>
         <div className="properties-bg pt-5">
+        <div className="container">
+        <div id="error" class="alert alert-danger animated bounceIn" style={{display: 'none'}} role="alert">
+          Error your search is invalid
+        </div>
+        <div className="row">
+
+          <div className="col-lg-3 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="location">
+              <option selected >Location...</option>
+              <option value="Bellville, ON">Bellville, ON</option>
+            </select>
+          </div>
+          <div className="col-lg-3 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="minSqft">
+              <option selected>Min sqft...</option>
+              <option value="1000">1000</option>
+              <option value="1500">1500</option>
+              <option value="2000">2000</option>
+              <option value="2500">2500</option>
+              <option value="3000">3000</option>
+              <option value="3500">3500</option>
+              <option value="4000">4000</option>
+              <option value="4500">4500</option>
+              <option value="5000">5000</option>
+            </select>
+          </div>
+          <div className="col-lg-2 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="minPrice">
+              <option selected>Min price...</option>
+              <option value="100000">100, 000</option>
+              <option value="250000">250, 000</option>
+              <option value="500000">500, 000</option>
+              <option value="750000">750, 000</option>
+              <option value="1000000">1, 000, 000</option>
+              <option value="1500000">1, 500, 000</option>
+              <option value="2000000">2, 000, 000</option>
+              <option value="2500000">2, 500, 000</option>
+              <option value="3000000">3, 000, 000</option>
+            </select>
+          </div>
+          <div className="col-lg-2 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="maxPrice">
+              <option selected>Max price...</option>
+              <option value="3000000">3, 000, 000</option>
+              <option value="2500000">2, 500, 000</option>
+              <option value="2000000">2, 000, 000</option>
+              <option value="1500000">1, 500, 000</option>
+              <option value="1000000">1, 000, 000</option>
+              <option value="750000">750, 000</option>
+              <option value="500000">500, 000</option>
+              <option value="250000">250, 000</option>
+              <option value="100000">100, 000</option>
+            </select>
+          </div>
+          <div className="col-12 col-lg-2 p-0 pl-2 my-2 justify-content-center d-flex d-lg-block">
+            <a className="mt-5 btn--more text-uppercase text-white" onClick={this.sort}>Search</a>
+          </div>
+        </div>
+
+      </div>
+          <div className="container pt-5">
+            <div className="row">
+            {this.state.sorted.slice(0, this.state.visible).map((item, index) => {
+              return (
+                <Property history={this.props.history} id={item.id} price={item.price} beds={item.beds} baths={item.baths} sqft={item.sqft} address={item.address} city={item.city} image={item.image}/>
+              );
+            })}
+            </div>
+            {this.state.visible < this.state.sorted.length &&
+            <div className="row justify-content-center pb-5">
+              <a className="mt-5 btn--more text-uppercase text-white" onClick={this.loadMore}>Load More...</a>
+            </div>
+            }
+
+          </div>
+        </div>    
+      </section> 
+      );
+    }
+    return (
+      <section id="properties" className="properties-bg">
+        <div className="container">
+        <div class="col-lg-12">
+          <div class="pt-5">
+            <p class="h1 text-uppercase justify-content-center d-flex">Properties</p>
+              
+            <div class="title-underline my-3 bg-secondary">
+              <div class="title-underline__center"></div>
+            </div>
+            <div class="mx-2">
+              <p class="text-center">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div className="properties-bg pt-5">
+        <div className="container">
+        <div id="error" class="alert alert-danger animated bounceIn" style={{display: 'none'}} role="alert">
+          Error your search is invalid
+        </div>
+        <div className="row">
+
+          <div className="col-lg-3 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="location">
+              <option selected >Location...</option>
+              <option value="Bellville, ON">Bellville, ON</option>
+            </select>
+          </div>
+          <div className="col-lg-3 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="minSqft">
+              <option selected>Min sqft...</option>
+              <option value="1000">1000</option>
+              <option value="1500">1500</option>
+              <option value="2000">2000</option>
+              <option value="2500">2500</option>
+              <option value="3000">3000</option>
+              <option value="3500">3500</option>
+              <option value="4000">4000</option>
+              <option value="4500">4500</option>
+              <option value="5000">5000</option>
+            </select>
+          </div>
+          <div className="col-lg-2 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="minPrice">
+              <option selected>Min price...</option>
+              <option value="100000">100, 000</option>
+              <option value="250000">250, 000</option>
+              <option value="500000">500, 000</option>
+              <option value="750000">750, 000</option>
+              <option value="1000000">1, 000, 000</option>
+              <option value="1500000">1, 500, 000</option>
+              <option value="2000000">2, 000, 000</option>
+              <option value="2500000">2, 500, 000</option>
+              <option value="3000000">3, 000, 000</option>
+            </select>
+          </div>
+          <div className="col-lg-2 p-0 pb-1">
+            <select class="custom-select form-control-lg mr-sm-2" id="maxPrice">
+              <option selected>Max price...</option>
+              <option value="3000000">3, 000, 000</option>
+              <option value="2500000">2, 500, 000</option>
+              <option value="2000000">2, 000, 000</option>
+              <option value="1500000">1, 500, 000</option>
+              <option value="1000000">1, 000, 000</option>
+              <option value="750000">750, 000</option>
+              <option value="500000">500, 000</option>
+              <option value="250000">250, 000</option>
+              <option value="100000">100, 000</option>
+            </select>
+          </div>
+          <div className="col-12 col-lg-2 p-0 pl-2 my-2 justify-content-center d-flex d-lg-block">
+            <a className="mt-5 btn--more text-uppercase text-white" onClick={this.sort}>Search</a>
+          </div>
+        </div>
+
+      </div>
           <div className="container pt-5">
             <div className="row">
             {this.state.items.slice(0, this.state.visible).map((item, index) => {

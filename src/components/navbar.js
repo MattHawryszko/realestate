@@ -83,7 +83,7 @@ render() {
             <a href="#exampleModal" role="button" class="btn toggleNav pl-4 pt-1 pb-2 d-flex d-sm-none" data-toggle="modal"><i className="p-0 m-0 fas fa-bars toggleNav"></i></a>
           </div>
 
-          <a class="navbar-brand text-white font-bold text-md" href="">LuxReality</a>
+          <a class="navbar-brand text-white font-bold text-md">LuxReality</a>
           <div class="collapse navbar-collapse justify-content-end" id="navbar1">
               <ul class="navbar-nav">
                   <li class="home active">

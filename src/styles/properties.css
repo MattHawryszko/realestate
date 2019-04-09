@@ -11,6 +11,7 @@
     letter-spacing: 2px;
     background-color: rgb(71, 102, 152);
     font-size: 1.25rem;
+    cursor: pointer;
   }
   .btn--more:hover {
     border-radius: 25px;

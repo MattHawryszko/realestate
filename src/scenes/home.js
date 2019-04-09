@@ -16,6 +16,7 @@ import map from "../img/staticmap.png"
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import NoMatch from '../components/nomatch';
 
 export default class App extends Component {
   constructor(props) {
@@ -23,13 +24,15 @@ export default class App extends Component {
   
     this.state = {
       items: [],
-      home: []
+      home: [],
+      found: false
     };
   
 
   }
   componentWillMount() {
     window.scrollTo(0, 0);
+    this.setState({found: false})
     this.setState({
       items: [{
         id: "10001",
@@ -171,20 +174,22 @@ export default class App extends Component {
   }
   findHome(){
    var items = this.state.items;
-   var found = false;
+
    console.log(items)
    items.forEach(element => {
       if(element.id === this.props.match.params.id){
         console.log(element.address)
         this.setState( {home: element})
-        found = true;
+        this.setState({found: true})
+
       }
     });
-    if(!found){
-      window.location.href = '/'+this.props.match.params.id;
-    }
+
   }
   render() {
+    if(!this.state.found){
+      return <NoMatch location={this.props.location} />
+    }
     return (
       <div className="w-100 agent-bg">
       <Navbar history={this.props.history} />
